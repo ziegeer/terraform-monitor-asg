@@ -4,7 +4,7 @@ module "notify_slack" {
 
   sns_topic_name = "slack-topic"
 
-  slack_webhook_url = "${var.slack_secret}"
+  slack_webhook_url = "${var.slack_webhook_url}"
   slack_channel     = "it-sre-bot"
   slack_username    = "AWS"
 }
