@@ -12,7 +12,7 @@ module "notify_slack" {
 # Make cloudwatch alerts for specified ASGs 
 resource "aws_cloudwatch_metric_alarm" "asg_zero" {
   count               = "${length(var.asgs)}"
-  alarm_name          = "testasg ASG has no instances"
+  alarm_name          = "${var.asgs[count.index]}-ASG-size"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "1"
   threshold           = "${var.minimum_instances}"
